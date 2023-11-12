@@ -14,6 +14,6 @@ class HomeController
     public function index()
     {
 
-        print_r($this->contact->getAll());
+        view('home.index');
     }
 }
