@@ -11,15 +11,10 @@
 
         <div class=" navbar">
             <h3>Phone Book <i class="far fa-address-book"></i></h3>
-
         </div>
 
-
         <div class="row">
-
-
             <div class="col-lg-4 inp">
-
                 <input onkeyup="searchFunction()" id="myInput" class="form-control mt-2" placeholder="search">
                 <span class="icon text-primary"><i class="fas fa-search"></i></span>
 
@@ -58,17 +53,9 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-
-
             </div>
-
-
-
         </div>
     </div>
-
-
-
     <footer class="text-center">Ahmad Al-Shahawi 2019.All rights reserved</footer>
 
     <script src="<?= asset_url('') ?>js/jquery-3.3.1.min.js"></script>
