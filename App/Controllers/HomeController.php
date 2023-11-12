@@ -22,6 +22,6 @@ class HomeController
         //     $this->contact->create(['name' => $faker->name(), 'mobile' => $faker->phoneNumber(), 'email' => $faker->email()]);
         // }
 
-        view('home.index', ['contacts' => $this->contact->get('*', [])]); //
+        view('home.index', ['contacts' => $this->contact->get('*', ['ORDER' => 'created_at'])]); //
     }
 }

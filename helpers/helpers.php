@@ -20,3 +20,9 @@ function view($path = '', $data = [])
     $fullPath = BASE_PATH . "views/$filePath.php";
     include_once $fullPath;
 }
+
+
+function xss_clean(string $string)
+{
+    return htmlspecialchars($string);
+}
