@@ -8,3 +8,5 @@ use App\Models\User;
 include_once('./bootstrap/init.php');
 $router = new Router();
 $router->run();
+
+echo site_url();
