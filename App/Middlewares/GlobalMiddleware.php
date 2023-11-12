@@ -1,14 +1,21 @@
-<?php 
+<?php
+
 namespace App\Middlewares;
+
 use App\Middlewares\Contracts\MiddlewareInterface;
 
-class GlobalMiddleware implements MiddlewareInterface {
+class GlobalMiddleware implements MiddlewareInterface
+{
 
-    public function handle() {
-        $glo
+    public function handle()
+    {
+        $this->sanitizeString();
     }
 
-    private function sanitizeString() {
-        foreach($_GET[] as )
+    private function sanitizeString()
+    {
+        foreach ($_REQUEST as $key => $value) {
+            $_REQUEST[$key] = xss_clean($value);
+        }
     }
 }

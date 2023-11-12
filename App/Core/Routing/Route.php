@@ -2,11 +2,14 @@
 
 namespace App\Core\Routing;
 
+use App\Middlewares\GlobalMiddleware;
+
 class Route
 {
     private static $routes = [];
     public static function add($method, $uri, $action = null, $middleware = [])
     {
+        $middleware[] = 'App\Middlewares\GlobalMiddleware';
         $method = is_array($method) ? $method : [$method];
         array_push(self::$routes, ['method' => $method, 'uri' => $uri, 'action' => $action, 'middleware' => $middleware]);
     }
@@ -15,7 +18,7 @@ class Route
     {
         return self::$routes;
     }
- 
+
     public static function get($uri, $action, $middleware = [])
     {
         self::add('get', $uri, $action, $middleware);
@@ -25,7 +28,7 @@ class Route
     {
         self::add('post', $uri, $action, $middleware);
     }
- 
+
     public static function put($uri, $action, $middleware = [])
     {
         self::add('put', $uri, $action, $middleware);
