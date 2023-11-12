@@ -116,13 +116,13 @@ class Router
 
         if (is_string($action)) {
             $fractions = explode("@", $action);
-            $controller =  "App\Controllers\\" . $fractions[0];
+            $controller = $fractions[0];
             $method = $fractions[1];
             $this->passRequest($controller, $method);
         }
 
         if (is_array($action)) {
-            $controller = "App\Controllers\\" . $action[0];
+            $controller = $action[0];
             $method = $action[1];
             $this->passRequest($controller, $method);
         }

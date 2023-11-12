@@ -25,6 +25,11 @@ class Request
         return $this->params;
     }
 
+    public function input($key)
+    {
+        return $this->params[$key];
+    }
+
     public function setParams($key, $value = null)
     {
         $this->route_params[$key] = $value;
