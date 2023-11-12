@@ -1,14 +1,12 @@
 <html>
 
 <head>
-
     <link rel="stylesheet" href="<?= asset_url('css/bootstrap.min.css') ?>" />
     <link rel="stylesheet" href="<?= asset_url('all.min.css') ?>" />
     <link rel="stylesheet" href="<?= asset_url('css/index_style.css') ?>" />
 </head>
 
 <body>
-
     <div class="jumbotron jum">
 
         <div class=" navbar">
@@ -33,10 +31,7 @@
                 <div id="phoneAlert" class="alert alert-danger text-justify p-2 ">Please add a valid number</div>
                 <input onblur="validateEmail()" class="form-control mb-3" placeholder="add e-mail" id="userEmail">
                 <div id="mailAlert" class="alert alert-danger text-justify p-2 ">Please add a valid e-mail</div>
-
                 <button onclick="addContact()" class="btn btn-info w-100 btn1">Add</button>
-
-
             </div>
 
 
@@ -48,16 +43,20 @@
                         <th class="">Name</th>
                         <th class="">Phone</th>
                         <th class="">E-mail</th>
-                        <th class="col-1"></th>
-                        <th class="col-1"></th>
+                        <th class="col-1">Actions</th>
                     </thead>
 
                     <tbody id="tableBody">
-
-
-
+                        <?php
+                        foreach ($contacts as $record) : ?>
+                            <tr>
+                                <td><?= $record['name'] ?></td>
+                                <td><?= $record['mobile'] ?></td>
+                                <td><?= $record['email'] ?></td>
+                                <td>...</td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
-
                 </table>
 
 
@@ -75,7 +74,7 @@
     <script src="<?= asset_url('') ?>js/jquery-3.3.1.min.js"></script>
     <script src="<?= asset_url('') ?>js/popper.min.js"></script>
     <script src="<?= asset_url('') ?>js/bootstrap.min.js"></script>
-    <script src="<?= asset_url('') ?>js/index.js"></script>
+    <!-- <script src="<?= asset_url('') ?>js/index.js"></script> -->
 </body>
 
 </html>
