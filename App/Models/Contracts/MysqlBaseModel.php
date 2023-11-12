@@ -57,18 +57,23 @@ class mysqlBaseModel extends BaseModel
     }
 
     // select all the existing records and columns in a table
-    public function getAll(): array
+    public function getAll(): array 
     {
-        return $this->connection->select($this->table, "*");
+        return $this->get("*", []);
     }
 
     /**
      * select a portion of data by specifying where conditions
      * and specific column names 
      */
-    public function get(array $columns, array $where): array
+    public function get($columns, array $where): array
     {
-        return $this->connection->get($this->table, $columns, $where);
+        if (isset($_GET['page']) && is_numeric($_GET['page'])) {
+            $start = $this->pageSize * ($_GET['page'] - 1);
+            $where['LIMIT'] = [$start, $this->pageSize];
+        }
+
+        return $this->connection->select($this->table, $columns, $where);
     }
 
     /**
